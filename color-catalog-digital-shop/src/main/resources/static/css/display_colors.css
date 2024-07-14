@@ -1,0 +1,60 @@
+/* display_colors.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background: url('/images/img12.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#container {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 50%; /* Adjusted width for better responsiveness */
+    max-width: 800px; /* Added max-width for larger screens */
+}
+
+h2 {
+    color: #333;
+    background-color: lightgoldenrodyellow;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.color-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    overflow-x: auto; /* Added overflow-x for scrolling if necessary */
+}
+
+.color-box {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    flex: 0 0 auto; /* Ensures the boxes do not shrink or grow */
+}
+
+button[type="submit"], button[type="button"] {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+}
+
+button[type="submit"]:hover, button[type="button"]:hover {
+    background-color: orangered;
+}

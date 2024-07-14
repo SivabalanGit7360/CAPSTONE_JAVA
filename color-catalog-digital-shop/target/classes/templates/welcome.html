@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="/css/welcome.css">
+</head>
+<body>
+    <div id="container">
+        <h2>Welcome to the Color Shop, <span th:text="${username}"></span>!</h2>
+        <h2>You can choose Color Now!</h2>
+        <form id="form-id" action="/select-colors" method="post" onsubmit="return validateForm()">
+            <input type="hidden" name="username" th:value="${username}">
+             <div class="checkbox-group">
+                <label><input type="checkbox" name="colors" value="red" onclick="limitSelection()"> Red</label>
+                <label><input type="checkbox" name="colors" value="green" onclick="limitSelection()"> Green</label>
+                <label><input type="checkbox" name="colors" value="blue" onclick="limitSelection()"> Blue</label>
+                <label><input type="checkbox" name="colors" value="black" onclick="limitSelection()"> Black</label>
+                <label><input type="checkbox" name="colors" value="yellow" onclick="limitSelection()"> Yellow</label>
+				<label><input type="checkbox" name="colors" value="pink" onclick="limitSelection()"> Pink</label>
+            </div>
+            <div class="buttons">
+                <button type="submit">Submit</button>
+            </div>
+            <div id="error-message" style="color:red;">
+				
+			</div>
+        </form>
+        <form action="/logout" method="post">
+            <button type="submit" id="logout-btn">Logout</button>
+        </form>
+    </div>
+    <script>
+        function limitSelection() {
+            var checkboxes = document.querySelectorAll('input[name="colors"]');
+            var checkedCount = Array.from(checkboxes).filter(checkbox => checkbox.checked).length;
+            checkboxes.forEach(checkbox => {
+                if (checkedCount >= 3 && !checkbox.checked) {
+                    checkbox.disabled = true;
+                } else {
+                    checkbox.disabled = false;
+                }
+            });
+        }
+
+        function validateForm() {
+            var checkboxes = document.querySelectorAll('input[name="colors"]');
+            var checkedCount = Array.from(checkboxes).filter(checkbox => checkbox.checked).length;
+            if (checkedCount < 3) {
+                document.getElementById('error-message').innerText = "Please choose at least 3 colors.";
+                return false;  // Prevent form submission
+            }
+            return true;  // Allow form submission
+        }
+    </script>
+</body>
+</html>

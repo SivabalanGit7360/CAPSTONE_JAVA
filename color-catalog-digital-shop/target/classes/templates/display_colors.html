@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Selected Colors</title>
+    <link rel="stylesheet" href="/css/display_colors.css">
+</head>
+<body>
+    <div id="container">
+        <h2>Your Selected Colors:</h2>
+        <div class="color-container">
+            <div class="color-box" th:each="color : ${colors}" th:style="'background-color:' + ${color}"></div>
+        </div>
+        <form action="/logout" method="post">
+            <button type="submit" id="logout-btn">Logout</button>
+        </form>
+    </div>
+</body>
+</html>
